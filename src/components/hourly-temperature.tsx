@@ -30,13 +30,15 @@ const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
       </CardHeader>
 
       <CardContent>
+        {/* Increase height if you want a taller chart overall */}
         <div className="h-[200px] w-full">
           <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={chartData}>
-              {/*
-                1. A linearGradient definition so we can apply a subtle gradient
-                   to the main temperature line.
-              */}
+            <LineChart
+              data={chartData}
+              /* Reduce bottom margin so the chart doesn’t leave extra space. */
+              margin={{ top: 20, right: 20, left: 0, bottom: 10 }}
+            >
+              {/* A subtle gradient for the main temperature line */}
               <defs>
                 <linearGradient id="tempGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#2563eb" />
@@ -44,10 +46,6 @@ const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
                 </linearGradient>
               </defs>
 
-              {/*
-                2. X and Y axes with minimal styling (no lines/ticks) and
-                   a Y domain that gives a bit of headroom above and below.
-              */}
               <XAxis
                 dataKey="time"
                 stroke="#888888"
@@ -56,26 +54,31 @@ const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
                 axisLine={false}
                 tickSize={8}
               />
+
               <YAxis
                 stroke="#888888"
                 fontSize={12}
                 tickLine={false}
                 axisLine={false}
                 tickSize={8}
+                /* 
+                  Use a custom domain function so the minimum 
+                  is only 1 degree below your lowest data point. 
+                  This keeps the chart from adding a huge empty area.
+                */
+                domain={[
+                  (dataMin: number) => dataMin - 1,
+                  (dataMax: number) => dataMax + 1,
+                ]}
                 tickFormatter={(value) => `${value}°`}
-                domain={["dataMin - 3", "dataMax + 3"]} // Add a little extra space
               />
 
-              {/*
-                3. Custom tooltip that displays both "Temperature" and "Feels Like",
-                   plus the time of day.
-              */}
               <Tooltip
                 content={({ active, payload }) => {
                   if (active && payload && payload.length) {
                     return (
                       <div className="rounded-md border bg-background px-3 py-2 shadow-sm">
-                        <div className="text-xs font-semibold text-muted-foreground uppercase mb-1">
+                        <div className="mb-1 text-xs font-semibold uppercase text-muted-foreground">
                           {payload[0].payload.time}
                         </div>
                         <div className="flex gap-4">
@@ -99,14 +102,7 @@ const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
                 }}
               />
 
-              {/*
-                4. Main Temperature Line:
-                   - Uses the gradient
-                   - Increased strokeWidth
-                   - Smooth animation
-                   - Rounded line caps
-                   - Larger active dot on hover
-              */}
+              {/* Main temperature line (with gradient stroke) */}
               <Line
                 type="monotone"
                 dataKey="temp"
@@ -121,11 +117,7 @@ const HourlyTemperature = ({ data }: HourlyTemperatureProps) => {
                 activeDot={{ r: 6, strokeWidth: 2, stroke: "#2563eb", fill: "#fff" }}
               />
 
-              {/*
-                5. "Feels Like" Line:
-                   - Slightly thinner, dashed
-                   - Similar animation props
-              */}
+              {/* Feels Like line (dashed) */}
               <Line
                 type="monotone"
                 dataKey="feels_like"
