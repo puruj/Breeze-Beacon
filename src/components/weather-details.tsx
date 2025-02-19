@@ -81,7 +81,7 @@ const WeatherDetails = ({ data }: WeatherDetailsProps) => {
                 {/* Wrap the icon in a motion.span to animate the icon itself on hover */}
                 <motion.span
                   className=""
-                  whileHover={{ rotate: 20 }}
+                  whileHover={{ scale: 1.2 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <detail.icon className={`h-5 w-5 ${detail.color}`} />

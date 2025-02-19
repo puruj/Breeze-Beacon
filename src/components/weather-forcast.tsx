@@ -109,8 +109,8 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                   <div className="flex justify-end gap-4">
                     {/* Animate the Droplets icon on row hover */}
                     <div className="flex items-center gap-1">
-                      <motion.span
-                        whileHover={{ rotate: 20 }}
+                    <motion.span
+                        whileHover={{ scale: 1.2 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
                         <Droplets className="h-4 w-4 text-blue-500" />
