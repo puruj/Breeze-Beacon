@@ -1,5 +1,5 @@
-import { API_CONFIG } from "./config";
-import type { Coordinates, WeatherData, ForecastData, GeocodingResponse } from "./types";
+import { API_CONFIG } from "./config.js";
+import type { Coordinates, WeatherData, ForecastData, GeocodingResponse } from "./types.js";
 
 class WeatherAPI {
     private createUrl(endpoint: string, params: Record<string, string | number>) {
