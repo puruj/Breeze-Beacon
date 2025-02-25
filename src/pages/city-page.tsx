@@ -1,14 +1,14 @@
 import { useSearchParams, useParams } from 'react-router-dom';
 import React from 'react';
-import { useForecastQuery, useWeatherQuery } from '@/hooks/use-weather';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertCircle } from 'lucide-react';
-import WeatherSkeleton from '@/components/loading-skeleton';
-import CurrentWeather from '@/components/current-weather';
-import HourlyTemperature from '@/components/hourly-temperature';
-import WeatherDetails from '@/components/weather-details';
-import { WeatherForecast } from '@/components/weather-forcast';
-import { FavoriteButton } from '@/components/favorite-button';
+import { useForecastQuery, useWeatherQuery } from '@/hooks/use-weather.js';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert.js';
+import WeatherSkeleton from '@/components/loading-skeleton.js';
+import { FavoriteButton } from '@/components/favorite-button.js';
+import CurrentWeather from '@/components/current-weather.js';
+import HourlyTemperature from '@/components/hourly-temperature.js';
+import WeatherDetails from '@/components/weather-details.js';
+import { WeatherForecast } from '@/components/weather-forcast.js';
 
 const CityPage = () => {
 

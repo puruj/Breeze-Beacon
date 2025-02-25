@@ -1,8 +1,8 @@
 import React from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card.js"
 import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react"
 import { format } from "date-fns"
-import type { ForecastData } from "@/api/types"
+import type { ForecastData } from "@/api/types.js"
 import { motion } from "framer-motion"
 
 interface WeatherForecastProps {

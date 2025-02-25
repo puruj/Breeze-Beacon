@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTheme } from '@/context/theme-provider';
+import { useTheme } from '@/context/theme-provider.js';
 import { Link } from 'react-router-dom';
 import { Moon, Sun } from "lucide-react";
-import { CitySearch } from './city-search';
+import { CitySearch } from './city-search.js';
 const Header = () => { 
     const {theme, setTheme} = useTheme();
     const isDark = theme === "dark";

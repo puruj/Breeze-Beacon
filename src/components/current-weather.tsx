@@ -1,8 +1,8 @@
 import * as React from "react"
-import type { GeocodingResponse, WeatherData } from "@/api/types"
-import { Card, CardContent } from "./ui/card"
 import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { GeocodingResponse, WeatherData } from "@/api/types.js"
+import { Card, CardContent } from "./ui/card.js"
 
 interface CurrentWeatherProps {
   data: WeatherData
