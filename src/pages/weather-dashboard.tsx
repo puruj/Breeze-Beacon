@@ -3,7 +3,7 @@ import { FavoriteCities } from '@/components/favorite-cities';
 import HourlyTemperature from '@/components/hourly-temperature';
 import WeatherSkeleton from '@/components/loading-skeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
+import { button as Button } from "@/components/ui/button"
 import WeatherDetails from '@/components/weather-details';
 import { WeatherForecast } from '@/components/weather-forcast';
 import { useGeolocation } from '@/hooks/use-geolocation';
