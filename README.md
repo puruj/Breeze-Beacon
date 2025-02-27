@@ -4,7 +4,7 @@ A responsive weather application built with React, TypeScript, and TanStack Quer
 
 ## Live Demo
 
-[**Check it out here**](https://voluble-otter-9c4c09.netlify.app/)
+[**Check it out here**](https://67be7f52de51631e231bd360--voluble-otter-9c4c09.netlify.app/)
 
 ## Features
 
